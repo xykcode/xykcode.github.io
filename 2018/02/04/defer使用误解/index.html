@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta name="description" content="golang的一些新语法如go、channel、defer等确实好用，理解不到位或者使用不好就会巨坑。今天说一下defer以正三观。 1、defer是函数的return之后退出之前执行的语句。不是循环退出之前执行的语句 2、defer 执行的是函数，赋值等简单语句要用匿名函数包起来。 3、defer 执行函数的参数会提前占位 defer writeResponse(c, resp)resp.Pay">
+<meta property="og:type" content="article">
+<meta property="og:title" content="defer 使用误解">
+<meta property="og:url" content="http://yoursite.com/2018/02/04/defer使用误解/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="golang的一些新语法如go、channel、defer等确实好用，理解不到位或者使用不好就会巨坑。今天说一下defer以正三观。 1、defer是函数的return之后退出之前执行的语句。不是循环退出之前执行的语句 2、defer 执行的是函数，赋值等简单语句要用匿名函数包起来。 3、defer 执行函数的参数会提前占位 defer writeResponse(c, resp)resp.Pay">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-24T05:17:07.924Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="defer 使用误解">
+<meta name="twitter:description" content="golang的一些新语法如go、channel、defer等确实好用，理解不到位或者使用不好就会巨坑。今天说一下defer以正三观。 1、defer是函数的return之后退出之前执行的语句。不是循环退出之前执行的语句 2、defer 执行的是函数，赋值等简单语句要用匿名函数包起来。 3、defer 执行函数的参数会提前占位 defer writeResponse(c, resp)resp.Pay">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/04/defer使用误解/"/>
 
 
 
 
 
-  <title>Archive | Hexo</title>
+  <title>defer 使用误解 | Hexo</title>
   
 
 
@@ -140,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,111 +218,166 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Um..! 11 posts in total. Keep on posting.
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/04/defer使用误解/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/04/defer使用误解/" itemprop="url">
-              
-                <span itemprop="name">defer 使用误解</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">defer 使用误解</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-04T14:24:58+08:00"
-              content="2018-02-04" >
-          02-04
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-04T14:24:58+08:00">
+                2018-02-04
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/未分类/" itemprop="url" rel="index">
+                    <span itemprop="name">未分类</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/01/ffmpeg零缓冲低延时播放/" itemprop="url">
-              
-                <span itemprop="name">ffmpeg 零缓冲低延时播放</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-01T10:47:36+08:00"
-              content="2018-02-01" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p>golang的一些新语法如go、channel、defer等确实好用，理解不到位或者使用不好就会巨坑。今天说一下defer以正三观。 1、defer是函数的return之后退出之前执行的语句。<strong>不是循环退出之前执行的语句</strong> 2、defer 执行的是函数，赋值等简单语句要用匿名函数包起来。 3、defer 执行函数的参数会提前占位</p>
+<p>defer writeResponse(c, resp)<br>resp.Payload.Data = pushdata</p>
+<p>最终resp里面的Data并没有赋值成功，因为resp的信息已经预编译在defer处。 要想后面的修改生效需将writeResponse用匿名函数包起来</p>
+<p>defer func(){writeResponse(c, resp)}()<br>resp.Payload.Data = pushdata</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/01/ffmpeg零缓冲低延时播放/" rel="next" title="ffmpeg 零缓冲低延时播放">
+                <i class="fa fa-chevron-left"></i> ffmpeg 零缓冲低延时播放
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -326,6 +385,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -540,6 +603,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

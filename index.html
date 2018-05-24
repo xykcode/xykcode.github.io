@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/24/test-my-site/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/04/defer使用误解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/24/test-my-site/" itemprop="url">test_my_site</a></h1>
+                <a class="post-title-link" href="/2018/02/04/defer使用误解/" itemprop="url">defer 使用误解</a></h1>
         
 
         <div class="post-meta">
@@ -260,8 +260,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-24T11:20:09+08:00">
-                2018-05-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-04T14:24:58+08:00">
+                2018-02-04
               </time>
             
 
@@ -270,6 +270,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/未分类/" itemprop="url" rel="index">
+                    <span itemprop="name">未分类</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -300,7 +322,11 @@
       
         
           
-            
+            <p>golang的一些新语法如go、channel、defer等确实好用，理解不到位或者使用不好就会巨坑。今天说一下defer以正三观。 1、defer是函数的return之后退出之前执行的语句。<strong>不是循环退出之前执行的语句</strong> 2、defer 执行的是函数，赋值等简单语句要用匿名函数包起来。 3、defer 执行函数的参数会提前占位</p>
+<p>defer writeResponse(c, resp)<br>resp.Payload.Data = pushdata</p>
+<p>最终resp里面的Data并没有赋值成功，因为resp的信息已经预编译在defer处。 要想后面的修改生效需将writeResponse用匿名函数包起来</p>
+<p>defer func(){writeResponse(c, resp)}()<br>resp.Payload.Data = pushdata</p>
+
           
         
       
@@ -348,7 +374,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/24/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/01/ffmpeg零缓冲低延时播放/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -367,7 +393,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/24/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2018/02/01/ffmpeg零缓冲低延时播放/" itemprop="url">ffmpeg 零缓冲低延时播放</a></h1>
         
 
         <div class="post-meta">
@@ -379,8 +405,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-24T11:11:15+08:00">
-                2018-05-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-01T10:47:36+08:00">
+                2018-02-01
               </time>
             
 
@@ -389,6 +415,39 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ffmpeg/" itemprop="url" rel="index">
+                    <span itemprop="name">ffmpeg</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ffmpeg/流媒体/" itemprop="url" rel="index">
+                    <span itemprop="name">流媒体</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -419,15 +478,1216 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <p>ffmpeg -probesize 1000 -analyzeduration 1000 -flags low_delay -max_delay 0 -fflags nobuffer -i <a href="https://pull-flv-l11-ispe.ixigua.com/us\_ifantasy/234234270.flv" target="_blank" rel="noopener">https://pull-flv-l11-ispe.ixigua.com/us\_ifantasy/234234270.flv</a> -vcodec rawvideo -pix_fmt yuv420p -f sdl “SDL output”</p>
+<p>-probesize ：探测流长度</p>
+<p>-analyzeduration：分析流信息收集数据长度</p>
+<p>-flags low_delay：低延时解码参数</p>
+<p>-max_delay 0： 最大延时？？</p>
+<p><strong>-fflags nobuffer：播放缓存</strong></p>
+<p>-vcodec rawvideo：输出yuv数据</p>
+<p>-pix_fmt yuv420p：指定输出yuv格式</p>
+<p>-f sdl：进行播放</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/24/pip安装受限虚拟Python环境virtualenv/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/24/pip安装受限虚拟Python环境virtualenv/" itemprop="url">pip安装受限，虚拟Python环境virtualenv</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-24T17:18:21+08:00">
+                2017-12-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>个人电脑还好，环境是自己的，拥有着无上权限，爱咋搞咋搞。在办公环境中，往往处于保护的目的，很多系统环境是个人无法动的，比如python的环境，往往初始化一个通用的，添加一些常用的依赖包，如果此时我们想安装一两个项目中单独用到的特殊包，直接用pip install往往会因为没有权限而失败，那怎么办呢？答案是对项目单独初始一个虚拟环境，然后将python的一些特殊包之类的安装在虚拟环境中。这个虚拟环境管理工具就是virtualenv。</p>
+<h2 id="virtualenv的安装"><a href="#virtualenv的安装" class="headerlink" title="virtualenv的安装"></a>virtualenv的安装</h2><p><code>$ python install virtualenv</code> 这一步一般是具有高权限的管理员才能安装的，需要安装到系统指定的site-packages。</p>
+<h2 id="python虚拟环境初始化"><a href="#python虚拟环境初始化" class="headerlink" title="python虚拟环境初始化"></a>python虚拟环境初始化</h2><p>进入项目目录运行 <code>$ virtualenv python_env New python executable in python_env/bin/python Installing setuptools, pip, wheel...done.</code> 这样就在python_env目录下初始化好了虚拟的python环境。</p>
+<h3 id="向python虚拟环境安装包"><a href="#向python虚拟环境安装包" class="headerlink" title="向python虚拟环境安装包"></a>向python虚拟环境安装包</h3><p><code>$ source python_env/bin/activate (python_env) $</code> 如上，先进入虚拟环境，然后就跟正常情况一样执行python的安装操作即可 <code>(python_env) $ pip install influxdb You are using pip version 7.0.3, however version 9.0.1 is available. You should consider upgrading via the &#39;pip install --upgrade pip&#39; command. Collecting influxdb ......</code> 在python_env环境下，用pip安装的包都被安装到python_env这个虚拟的python环境下，系统Python环境不受任何影响。也就是说，python_env环境是专门针对一个项目创建的。 退出虚拟环境用deactivate命令。 <code>(python_env) $ deactivate $</code> virtualenv 还有一种常用的使用场景就是解决不同的项目之间的依赖版本冲突，总而言之就是为每个项目单独虚拟一个隔离的python环境，实现1v1的服务。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/06/ulimit资源限制无效/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/06/ulimit资源限制无效/" itemprop="url">ulimit 资源限制无效</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-06T12:35:29+08:00">
+                2017-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>众所周知，ulimit是linux里控制资源限制的，比如 ulimit -a <img src="http://www.xuyongkang.com/wp-content/uploads/2017/12/ulimit-a-300x243.jpg" alt=""> 可以看到open files 已经设置为1048576，然而部分服务并不生效，重启依然不生效，某进程具体的资源限制可以通过查看/proc/$pid/limits 文件。 <img src="http://www.xuyongkang.com/wp-content/uploads/2017/12/ulimit-300x155.jpeg" alt=""> 显示这个进程实际的资源限制仍然是默认的1024，也确实，fd达到1024就不能再往上增加了。 修改open files的数值永久生效，则必须修改配置文件：/etc/security/limits.conf. 在这个文件后加上： <em> soft nofile 102400 </em> hard nofile 102400 显然，从图一看已经将最多文件数修改成功了，那为什么有些应用还是不适用最新的资源限制呢？ 总结发现这些不适用最新资源限制的应用都不是手动起的，手动重启是没问题的，用systemctl启动open files就会限制在1024； 搜索资料后发现，CENTOS7 /etc/security/limits.conf 文件的配置作用域缩小了一些。limits.conf这里的配置，只适用于通过PAM认证登录用户的资源限制，它对systemd的service的资源限制不生效。登录用户的限制，与上面讲的一样，通过 /etc/security/limits.conf 和 limits.d 来配置即可。 像systemctl启动的进程如何控制其资源限制？其实可以通过修改 /etc/systemd/system.conf 后重启系统设置非用户的进程资源限制。有没有不重启系统的方式？其实是有的，可以针对systemctl的单个进程设置其资源限制，比如supervisor，可以修改 /usr/lib/systemd/system/supervisord.service。然后运行sudo systemctl daemon-reload sudo systemctl restart supervisord</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/切割ts后播放m3u8进度条异常跳动/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/28/切割ts后播放m3u8进度条异常跳动/" itemprop="url">切割ts后播放m3u8进度条异常跳动</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-28T11:34:18+08:00">
+                2017-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/流媒体/" itemprop="url" rel="index">
+                    <span itemprop="name">流媒体</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>视频直播后回放生成采用的m3u8描述ts格式，应业务需求增加了剪辑功能。如果合成mp4再剪辑再生成m3u8和ts流就会异常繁琐，中间过程还会有一些异常情况，综合考虑直接对m3u8进行剪辑。 剪辑分为粗剪和细剪两种，顾名思义。粗剪就是在时间点附近剪辑，这样可以不用考虑ts而直接操作m3u8文件，剪辑过程更加简单安全，坏处就是不够精细。细剪就会精确到某一秒甚至某一帧，简单的操作m3u8文件显然是无法完成任务的，这时需要将临界点处的ts文件进行处理，即将ts文件按需求剪成两部分，然后更改m3u8的描述时长。理想是远大的，然后显示总是那么骨感，这样剪辑出来的m3u8播放不太正常，特别是掐头去尾这种剪辑方式，在播放完第一段就会跳到后面。 综合观察分析发现就是ts文件记录了开始时间。如下图start字段所示。 <img src="http://www.xuyongkang.com/wp-content/uploads/2017/11/tsstart-300x100.jpg" alt=""> 那么将start抹掉应该就可以解决问题，网上找到了类似的问题，解决方式无非是ffmpeg切割转码时增加几个参数，然而并不适用于我，最终也没有抹掉这个start字段，后来想了下，切割ts文件其实也是造成了视音频不连续，虽然这个不连续是在视频开头，那么插入不连续标识#EXT-X-DISCONTINUITY是否可以解决问题？尝试了一下还果然奏效，这个问题就这么的迎刃而解了。。。有空再读下ffmpeg源码，看下这个start字段到底怎么抹掉。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/多种视频格式回放生成/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/28/多种视频格式回放生成/" itemprop="url">多种视频格式回放生成</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-28T11:12:15+08:00">
+                2017-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ffmpeg/" itemprop="url" rel="index">
+                    <span itemprop="name">ffmpeg</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ffmpeg/流媒体/" itemprop="url" rel="index">
+                    <span itemprop="name">流媒体</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>直播过程难免会有网络的抖动、设备没电、程序crash等等异常情况出现而导致直播中断，允许用户重推视频显然是一件比较重要且迫切的事情，对于同一种视频格式重推还好，可以用ffmpeg方便的将多段拼接在一块。如果用户更换设备（这时极有可能的）那么推得流有很大可能与之前的视音频格式不一致，此时如果想将多段视频格式拼接在一块，现实经验告诉我会有各种各种异常出现，比如绿屏、马赛克、音频异常、视音频不同步、甚至断点无法播放等等，即使把每段视频都转码（先不考虑转码带来的开销有多大）也不能完全摒弃这些异常情况。 也因此我们在做视频直播的初期是规定用户只能重推相同视音频格式的流，在每次重推开始都会对流格式做校验，这是可以解决问题的，而现场往往不是理想的开发环境，比如用户设备就是坏了还需要尽快恢复直播，用户不懂技术找一个相同视频格式的设备又不现实，所以要允许多格式视频重推。多格式重推开始也是将多段合成一个视频，在合并之前先统一视频格式，为此还专门写了一个转码服务，然而转码带来的cpu开销很大且很耗时，导致视频生成回放极慢，生成的视频也是有些问题。 通过调研，看似无解的多格式回放生成问题，其实是可以从播放端解决的，那就是多格式的视频不合并，给播放端一个播放列表，在每次播放视频之前重新初始化播放器，每次只播一段同一格式的视频。而这种方式m3u8是天然支持的，只需要在不连续的地方插入一个不连续标识即可 #EXT-X-DISCONTINUITY。 示例： <code>#EXTM3U #EXT-X-TARGETDURATION:10 #EXT-X-MEDIA-SEQUENCE:0 #EXTINF:10, 000000.ts #EXTINF:10, 000001.ts #EXTINF:5, 000002.ts #EXT-X-DISCONTINUITY #EXTINF:10, 000100.ts #EXTINF:3, 000101.ts #EXT-X-ENDLIST</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/ffmpeg多输出同时播放和推流/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/24/ffmpeg多输出同时播放和推流/" itemprop="url">ffmpeg 多输出，同时播放和推流</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-24T12:41:12+08:00">
+                2017-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ffmpeg/" itemprop="url" rel="index">
+                    <span itemprop="name">ffmpeg</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ffmpeg/流媒体/" itemprop="url" rel="index">
+                    <span itemprop="name">流媒体</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近直播推流被反馈延时过高，不可接受。 直播涉及到采集、编码、推流、分发、拉流、显示等若干环节，因此延时问题还真不好确定是哪个环节出的问题。现在想先不考虑采集编码，看看cdn网络是否正常，先把问题范围缩小。想到的方案是直接用ffmpeg向cdn推流，然后从cdn拉下来看同步情况。观察延时大小总得有个比较吧，所以需要ffmpeg在推流的同时输出一路流用于当基准播放出来。 ffmpeg -formats 命令可以列出其支持的所有格式，除了flv、hls、concat、mjpeg等常见的，还有好多，以后可以详细研究一下，目前看到比较感兴趣的是下面几个。</p>
+<ul>
+<li>md5 ： 估计是用来计算视频的md5值得吧。</li>
+<li>fifo：   输出到管道？</li>
+<li>tee:      类似linux的tee命令吧，查ffmpeg文档，这个命令可以同时进行多路转码</li>
+<li>matroska    查ffmpeg文档，这是个多工器，可以实现多路输出</li>
+</ul>
+<p>另外，补充一点，“-”短杠代表标准输出，ffmpeg -i 1.mp4 -f flv - 就是将md5值输出到标准输出。 所以多路输出可以这样写，ffmpeg -i 1.mp4 -c copy -f matroska - -c copy -f flv rtmp://abpush.xuyongkang.com/test  |ffplay - ffmpeg 将一路推流出去，另一路输出到标准输出，通过管道调用ffplay从标准输出读取流。这样就实现了一边播放原流，一边向cdn推流的目的。再从cdn拉取流与源流比较即可。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/更改hosts文件后reload_nginx不生效/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/10/更改hosts文件后reload_nginx不生效/" itemprop="url">更改hosts文件后reload nginx不生效</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-10T17:34:52+08:00">
+                2017-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">Nginx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天阿里云上一台服务器A忘续费释放了，然后重新申请了服务器A后重新部署应用。另一台服务器B用nginx做反向代理进行路由转发，B的hosts文件里对A进行了解析，由于重新申请的A服务器，所以IP肯定不一致了，然后相应的修改了B服务器上hosts文件里对A的IP解析，接着reload nginx后以为大功告成，还随意的在浏览器访问了下测试url，不通！！！ 登录B服务器，查看nginx错误日志文件，打开debug模式，最终发现转发到A原来的IP地址上了。原因不言而明，对A 的IP映射没有生效。无他，重启nginx服务后再访问测试url。正常了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/19/数据库是utf8mb4了为啥还不支持emoji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/19/数据库是utf8mb4了为啥还不支持emoji/" itemprop="url">数据库是utf8mb4了为啥还不支持emoji？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-19T19:42:50+08:00">
+                2017-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Golang/" itemprop="url" rel="index">
+                    <span itemprop="name">Golang</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Golang/Mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">Mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>像👉🙌🙏💪👀💤 这些emoji表情已经在日常生活中大行其道，特别是消息系统中如果不支持这些通用的emoji表情简直是天理不容。先让我们简单的了解一下emoji的原理，心急的童鞋可以直接跳到最后一段。 emoji表情本质上是unicode字符集中一段编码，可以看一下unicode官网定义的emoji表情。<a href="http://www.unicode.org/emoji/charts/full-emoji-list.html" target="_blank" rel="noopener">unicode官网</a> ,截图如下。 <img src="http://47.94.166.202/xyk/wordpress/wp-content/uploads/2017/09/unicode-300x156.jpg" alt=""> 可以看到，每家平台对emoji表情的画风并不是一样的。即，unicode只是标准化了每个unicode表示什么意思，如U+1F600表示grinning face（笑嘻嘻）的意思，每家平台将其按自己的风格设计成不同的笑脸。 所以，<strong>emoji表情的支持首先需要平台的支持</strong>！如ios、android或者web程序，因为emoji本身是unicode文本，只要有相应的映射图片来翻译这些emoji表情即可，如果平台不支持你也可以在程序里，如js里通过增加映射关系来支持emoji。 很多情况是平台是支持emoji的，如ios发送了一个emoji表情，自身却显示不了，这是为什么呢？一些都是有原因的，肯定是接收的文本和发送的不一致啊，即你发送的是U+1F600而返回的是U+0000。出现这种情况说明是服务端处理出现问题了。下面着重说下服务端的emoji处理问题。 服务端处理emoji无非是编码是否支持，程序是支持unicode字符集的，<strong>存储需要全面支持unicode字符集</strong>，因为存储设计到编码，比如mysql的utf8就不支持，mysql的utf8编码只支持到3字节的unicode字符集，而emoji表情是4字节的，所以很尴尬，utf8方式存入emoji后取出来后并不是原来的emoji了，解决方案是mysql升级到5.5.3之后的版本，并将保存emoji字段或整张表的字符集替换为utf8mb4，utf8mb4就是用来兼容四字节的unicode编码的。一般的用utf8mb4的编码格式存储emoji是可以正常取出来的。 然而今天就偏偏遇到了utf8mb4的mysql编码无法正常存取emoji的问题。是的，一切都是有原因的！ 先说一下我的环境，后端的消息系统用golang进行开发，采用的beego的框架，mysql版本5.6.34，数据表字符集utf8mb4。 仔细分析问题，存储是没问题的，程序也是没问题的，最后怀疑到传输上，是的，连接mysql的时候是可以指定字符集的，指定字符集后会用该字符集编码传输到mysql，所以如果连接mysql时用utf8，那么即使数据库支持到utfmb4，emoji也是存不下来的，因为emoji传输到mysql时已经面目全非，所以<strong>连接mysql传输也需要utfmb4编码支持emoji</strong>。我程序里连接mysql也确实采用的utf方式，改成utf8mb4就可以了。 [code lang=”go”] func GenerateDSN() string { dbHost := beego.AppConfig.String(“db_host”) dbPort := beego.AppConfig.String(“db_port”) dbUser := beego.AppConfig.String(“db_user”) dbPassword := beego.AppConfig.String(“db_pass”) dbName := beego.AppConfig.String(“db_name”) dsn := dbUser + “:” + dbPassword + “@tcp(“ + dbHost + “:” + dbPort + “)/“ + dbName + “?charset=utf8mb4&amp;parseTime=true&amp;loc=Local” return dsn } [/code]</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/18/Bash脚本中后台运行命令退出码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/18/Bash脚本中后台运行命令退出码/" itemprop="url">Bash脚本中后台运行命令退出码</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-18T15:42:41+08:00">
+                2017-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Shell/" itemprop="url" rel="index">
+                    <span itemprop="name">Shell</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>bash脚本中经常会运行别的命令，比如起个命令下载日志，简单做法是等下载日志的命令执行完了再做别的操作，但是如果同时下载多个日志，一个个串行下载岂不是很笨，如果同时起3个下载日志的命令放到后台执行，那怎么保证每个都执行成功呢？即，如何回收脚本中后台运行命令的退出码？？ 没有放后台执行的阻塞命令可以通过 “$?” 输出最后的退出码，其实，后台命令可以通过wait命令等待其推出后用 “$?”也可以达到同样的目的。 [code lang=”bash”] #!/bin/bash (echo aaa &gt;&gt; /dev/null;sleep 3; exit 0)&amp; (echo bbb &gt;&gt; /dev/null;sleep 2; exit 1)&amp; (echo ccc &gt;&gt; /dev/null;sleep 1; exit 2)&amp; for((i=1;i&lt;4;i++)); do wait %$i echo $? done [/code] 如上脚本会依次打印返回码0，1，2； %n就是第几个放在后台的命令序号，从1开始计数，如sleep 3那个序号就是1 ；因此wait %1就是等待第一个命令执行完并返回其退出码。 众所周知，$? 就是最后一个命令的退出状态。因为wait是等待后台命令结束后返回其退出码，所以，在wait后打印$?也就是打印所等待命令的退出码。 wait除了 %n 方式等待后台程序退出以外还可以”wait pid”的方式等待某一个pid的进程退出。而”$!”表示最后放到后台运行程序的pid。所以上面的列子还可以有如下写法   [code lang=”bash”]#!/bin/bash (echo aaa &gt;&gt; /dev/null;sleep 3; exit 0)&amp; aaa=$! (echo bbb &gt;&gt; /dev/null;sleep 2; exit 1)&amp; bbb=$! (echo ccc &gt;&gt; /dev/null;sleep 1; exit 2)&amp; ccc=$! wait $aaa echo $? wait $bbb echo $? wait $ccc echo $?[/code] 当然，如果不关心返回码只是等待所有后台程序执行完的话还可以在wait后面什么都不加。</p>
 
           
         
@@ -466,6 +1726,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -509,14 +1773,32 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>

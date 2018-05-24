@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="beego,emoji,mysql,utf8,utf8mb4," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="像👉🙌🙏💪👀💤 这些emoji表情已经在日常生活中大行其道，特别是消息系统中如果不支持这些通用的emoji表情简直是天理不容。先让我们简单的了解一下emoji的原理，心急的童鞋可以直接跳到最后一段。 emoji表情本质上是unicode字符集中一段编码，可以看一下unicode官网定义的emoji表情。unicode官网 ,截图如下。  可以看到，每家平台对emoji表情的画风并不是一">
+<meta name="keywords" content="beego,emoji,mysql,utf8,utf8mb4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库是utf8mb4了为啥还不支持emoji？">
+<meta property="og:url" content="http://yoursite.com/2017/09/19/数据库是utf8mb4了为啥还不支持emoji/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="像👉🙌🙏💪👀💤 这些emoji表情已经在日常生活中大行其道，特别是消息系统中如果不支持这些通用的emoji表情简直是天理不容。先让我们简单的了解一下emoji的原理，心急的童鞋可以直接跳到最后一段。 emoji表情本质上是unicode字符集中一段编码，可以看一下unicode官网定义的emoji表情。unicode官网 ,截图如下。  可以看到，每家平台对emoji表情的画风并不是一">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://47.94.166.202/xyk/wordpress/wp-content/uploads/2017/09/unicode-300x156.jpg">
+<meta property="og:updated_time" content="2018-05-24T05:17:07.922Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库是utf8mb4了为啥还不支持emoji？">
+<meta name="twitter:description" content="像👉🙌🙏💪👀💤 这些emoji表情已经在日常生活中大行其道，特别是消息系统中如果不支持这些通用的emoji表情简直是天理不容。先让我们简单的了解一下emoji的原理，心急的童鞋可以直接跳到最后一段。 emoji表情本质上是unicode字符集中一段编码，可以看一下unicode官网定义的emoji表情。unicode官网 ,截图如下。  可以看到，每家平台对emoji表情的画风并不是一">
+<meta name="twitter:image" content="http://47.94.166.202/xyk/wordpress/wp-content/uploads/2017/09/unicode-300x156.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/19/数据库是utf8mb4了为啥还不支持emoji/"/>
+
+
+
+
+
+  <title>数据库是utf8mb4了为啥还不支持emoji？ | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/19/数据库是utf8mb4了为啥还不支持emoji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据库是utf8mb4了为啥还不支持emoji？</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-19T19:42:50+08:00">
+                2017-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Golang/" itemprop="url" rel="index">
+                    <span itemprop="name">Golang</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Golang/Mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">Mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>像👉🙌🙏💪👀💤 这些emoji表情已经在日常生活中大行其道，特别是消息系统中如果不支持这些通用的emoji表情简直是天理不容。先让我们简单的了解一下emoji的原理，心急的童鞋可以直接跳到最后一段。 emoji表情本质上是unicode字符集中一段编码，可以看一下unicode官网定义的emoji表情。<a href="http://www.unicode.org/emoji/charts/full-emoji-list.html" target="_blank" rel="noopener">unicode官网</a> ,截图如下。 <img src="http://47.94.166.202/xyk/wordpress/wp-content/uploads/2017/09/unicode-300x156.jpg" alt=""> 可以看到，每家平台对emoji表情的画风并不是一样的。即，unicode只是标准化了每个unicode表示什么意思，如U+1F600表示grinning face（笑嘻嘻）的意思，每家平台将其按自己的风格设计成不同的笑脸。 所以，<strong>emoji表情的支持首先需要平台的支持</strong>！如ios、android或者web程序，因为emoji本身是unicode文本，只要有相应的映射图片来翻译这些emoji表情即可，如果平台不支持你也可以在程序里，如js里通过增加映射关系来支持emoji。 很多情况是平台是支持emoji的，如ios发送了一个emoji表情，自身却显示不了，这是为什么呢？一些都是有原因的，肯定是接收的文本和发送的不一致啊，即你发送的是U+1F600而返回的是U+0000。出现这种情况说明是服务端处理出现问题了。下面着重说下服务端的emoji处理问题。 服务端处理emoji无非是编码是否支持，程序是支持unicode字符集的，<strong>存储需要全面支持unicode字符集</strong>，因为存储设计到编码，比如mysql的utf8就不支持，mysql的utf8编码只支持到3字节的unicode字符集，而emoji表情是4字节的，所以很尴尬，utf8方式存入emoji后取出来后并不是原来的emoji了，解决方案是mysql升级到5.5.3之后的版本，并将保存emoji字段或整张表的字符集替换为utf8mb4，utf8mb4就是用来兼容四字节的unicode编码的。一般的用utf8mb4的编码格式存储emoji是可以正常取出来的。 然而今天就偏偏遇到了utf8mb4的mysql编码无法正常存取emoji的问题。是的，一切都是有原因的！ 先说一下我的环境，后端的消息系统用golang进行开发，采用的beego的框架，mysql版本5.6.34，数据表字符集utf8mb4。 仔细分析问题，存储是没问题的，程序也是没问题的，最后怀疑到传输上，是的，连接mysql的时候是可以指定字符集的，指定字符集后会用该字符集编码传输到mysql，所以如果连接mysql时用utf8，那么即使数据库支持到utfmb4，emoji也是存不下来的，因为emoji传输到mysql时已经面目全非，所以<strong>连接mysql传输也需要utfmb4编码支持emoji</strong>。我程序里连接mysql也确实采用的utf方式，改成utf8mb4就可以了。 [code lang=”go”] func GenerateDSN() string { dbHost := beego.AppConfig.String(“db_host”) dbPort := beego.AppConfig.String(“db_port”) dbUser := beego.AppConfig.String(“db_user”) dbPassword := beego.AppConfig.String(“db_pass”) dbName := beego.AppConfig.String(“db_name”) dsn := dbUser + “:” + dbPassword + “@tcp(“ + dbHost + “:” + dbPort + “)/“ + dbName + “?charset=utf8mb4&amp;parseTime=true&amp;loc=Local” return dsn } [/code]</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/beego/" rel="tag"># beego</a>
+          
+            <a href="/tags/emoji/" rel="tag"># emoji</a>
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+            <a href="/tags/utf8/" rel="tag"># utf8</a>
+          
+            <a href="/tags/utf8mb4/" rel="tag"># utf8mb4</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/18/Bash脚本中后台运行命令退出码/" rel="next" title="Bash脚本中后台运行命令退出码">
+                <i class="fa fa-chevron-left"></i> Bash脚本中后台运行命令退出码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/10/更改hosts文件后reload_nginx不生效/" rel="prev" title="更改hosts文件后reload nginx不生效">
+                更改hosts文件后reload nginx不生效 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

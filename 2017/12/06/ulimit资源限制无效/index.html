@@ -79,13 +79,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta name="description" content="众所周知，ulimit是linux里控制资源限制的，比如 ulimit -a  可以看到open files 已经设置为1048576，然而部分服务并不生效，重启依然不生效，某进程具体的资源限制可以通过查看/proc/$pid/limits 文件。  显示这个进程实际的资源限制仍然是默认的1024，也确实，fd达到1024就不能再往上增加了。 修改open files的数值永久生效，则必须修改配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ulimit 资源限制无效">
+<meta property="og:url" content="http://yoursite.com/2017/12/06/ulimit资源限制无效/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="众所周知，ulimit是linux里控制资源限制的，比如 ulimit -a  可以看到open files 已经设置为1048576，然而部分服务并不生效，重启依然不生效，某进程具体的资源限制可以通过查看/proc/$pid/limits 文件。  显示这个进程实际的资源限制仍然是默认的1024，也确实，fd达到1024就不能再往上增加了。 修改open files的数值永久生效，则必须修改配置">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://www.xuyongkang.com/wp-content/uploads/2017/12/ulimit-a-300x243.jpg">
+<meta property="og:image" content="http://www.xuyongkang.com/wp-content/uploads/2017/12/ulimit-300x155.jpeg">
+<meta property="og:updated_time" content="2018-05-24T05:17:07.924Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="ulimit 资源限制无效">
+<meta name="twitter:description" content="众所周知，ulimit是linux里控制资源限制的，比如 ulimit -a  可以看到open files 已经设置为1048576，然而部分服务并不生效，重启依然不生效，某进程具体的资源限制可以通过查看/proc/$pid/limits 文件。  显示这个进程实际的资源限制仍然是默认的1024，也确实，fd达到1024就不能再往上增加了。 修改open files的数值永久生效，则必须修改配置">
+<meta name="twitter:image" content="http://www.xuyongkang.com/wp-content/uploads/2017/12/ulimit-a-300x243.jpg">
 
 
 
@@ -115,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/06/ulimit资源限制无效/"/>
 
 
 
 
 
-  <title>Archive | Hexo</title>
+  <title>ulimit 资源限制无效 | Hexo</title>
   
 
 
@@ -140,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,111 +221,167 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Um..! 11 posts in total. Keep on posting.
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/06/ulimit资源限制无效/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/04/defer使用误解/" itemprop="url">
-              
-                <span itemprop="name">defer 使用误解</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">ulimit 资源限制无效</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-04T14:24:58+08:00"
-              content="2018-02-04" >
-          02-04
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-06T12:35:29+08:00">
+                2017-12-06
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/01/ffmpeg零缓冲低延时播放/" itemprop="url">
-              
-                <span itemprop="name">ffmpeg 零缓冲低延时播放</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-01T10:47:36+08:00"
-              content="2018-02-01" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p>众所周知，ulimit是linux里控制资源限制的，比如 ulimit -a <img src="http://www.xuyongkang.com/wp-content/uploads/2017/12/ulimit-a-300x243.jpg" alt=""> 可以看到open files 已经设置为1048576，然而部分服务并不生效，重启依然不生效，某进程具体的资源限制可以通过查看/proc/$pid/limits 文件。 <img src="http://www.xuyongkang.com/wp-content/uploads/2017/12/ulimit-300x155.jpeg" alt=""> 显示这个进程实际的资源限制仍然是默认的1024，也确实，fd达到1024就不能再往上增加了。 修改open files的数值永久生效，则必须修改配置文件：/etc/security/limits.conf. 在这个文件后加上： <em> soft nofile 102400 </em> hard nofile 102400 显然，从图一看已经将最多文件数修改成功了，那为什么有些应用还是不适用最新的资源限制呢？ 总结发现这些不适用最新资源限制的应用都不是手动起的，手动重启是没问题的，用systemctl启动open files就会限制在1024； 搜索资料后发现，CENTOS7 /etc/security/limits.conf 文件的配置作用域缩小了一些。limits.conf这里的配置，只适用于通过PAM认证登录用户的资源限制，它对systemd的service的资源限制不生效。登录用户的限制，与上面讲的一样，通过 /etc/security/limits.conf 和 limits.d 来配置即可。 像systemctl启动的进程如何控制其资源限制？其实可以通过修改 /etc/systemd/system.conf 后重启系统设置非用户的进程资源限制。有没有不重启系统的方式？其实是有的，可以针对systemctl的单个进程设置其资源限制，比如supervisor，可以修改 /usr/lib/systemd/system/supervisord.service。然后运行sudo systemctl daemon-reload sudo systemctl restart supervisord</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/28/切割ts后播放m3u8进度条异常跳动/" rel="next" title="切割ts后播放m3u8进度条异常跳动">
+                <i class="fa fa-chevron-left"></i> 切割ts后播放m3u8进度条异常跳动
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/24/pip安装受限虚拟Python环境virtualenv/" rel="prev" title="pip安装受限，虚拟Python环境virtualenv">
+                pip安装受限，虚拟Python环境virtualenv <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -326,6 +389,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -540,6 +607,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

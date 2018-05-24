@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta name="description" content="最近直播推流被反馈延时过高，不可接受。 直播涉及到采集、编码、推流、分发、拉流、显示等若干环节，因此延时问题还真不好确定是哪个环节出的问题。现在想先不考虑采集编码，看看cdn网络是否正常，先把问题范围缩小。想到的方案是直接用ffmpeg向cdn推流，然后从cdn拉下来看同步情况。观察延时大小总得有个比较吧，所以需要ffmpeg在推流的同时输出一路流用于当基准播放出来。 ffmpeg -format">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ffmpeg 多输出，同时播放和推流">
+<meta property="og:url" content="http://yoursite.com/2017/10/24/ffmpeg多输出同时播放和推流/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近直播推流被反馈延时过高，不可接受。 直播涉及到采集、编码、推流、分发、拉流、显示等若干环节，因此延时问题还真不好确定是哪个环节出的问题。现在想先不考虑采集编码，看看cdn网络是否正常，先把问题范围缩小。想到的方案是直接用ffmpeg向cdn推流，然后从cdn拉下来看同步情况。观察延时大小总得有个比较吧，所以需要ffmpeg在推流的同时输出一路流用于当基准播放出来。 ffmpeg -format">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-24T05:17:07.923Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="ffmpeg 多输出，同时播放和推流">
+<meta name="twitter:description" content="最近直播推流被反馈延时过高，不可接受。 直播涉及到采集、编码、推流、分发、拉流、显示等若干环节，因此延时问题还真不好确定是哪个环节出的问题。现在想先不考虑采集编码，看看cdn网络是否正常，先把问题范围缩小。想到的方案是直接用ffmpeg向cdn推流，然后从cdn拉下来看同步情况。观察延时大小总得有个比较吧，所以需要ffmpeg在推流的同时输出一路流用于当基准播放出来。 ffmpeg -format">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/24/ffmpeg多输出同时播放和推流/"/>
 
 
 
 
 
-  <title>Archive | Hexo</title>
+  <title>ffmpeg 多输出，同时播放和推流 | Hexo</title>
   
 
 
@@ -140,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,111 +218,185 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Um..! 11 posts in total. Keep on posting.
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/ffmpeg多输出同时播放和推流/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/04/defer使用误解/" itemprop="url">
-              
-                <span itemprop="name">defer 使用误解</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">ffmpeg 多输出，同时播放和推流</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-04T14:24:58+08:00"
-              content="2018-02-04" >
-          02-04
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-24T12:41:12+08:00">
+                2017-10-24
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ffmpeg/" itemprop="url" rel="index">
+                    <span itemprop="name">ffmpeg</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ffmpeg/流媒体/" itemprop="url" rel="index">
+                    <span itemprop="name">流媒体</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/01/ffmpeg零缓冲低延时播放/" itemprop="url">
-              
-                <span itemprop="name">ffmpeg 零缓冲低延时播放</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-01T10:47:36+08:00"
-              content="2018-02-01" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p>最近直播推流被反馈延时过高，不可接受。 直播涉及到采集、编码、推流、分发、拉流、显示等若干环节，因此延时问题还真不好确定是哪个环节出的问题。现在想先不考虑采集编码，看看cdn网络是否正常，先把问题范围缩小。想到的方案是直接用ffmpeg向cdn推流，然后从cdn拉下来看同步情况。观察延时大小总得有个比较吧，所以需要ffmpeg在推流的同时输出一路流用于当基准播放出来。 ffmpeg -formats 命令可以列出其支持的所有格式，除了flv、hls、concat、mjpeg等常见的，还有好多，以后可以详细研究一下，目前看到比较感兴趣的是下面几个。</p>
+<ul>
+<li>md5 ： 估计是用来计算视频的md5值得吧。</li>
+<li>fifo：   输出到管道？</li>
+<li>tee:      类似linux的tee命令吧，查ffmpeg文档，这个命令可以同时进行多路转码</li>
+<li>matroska    查ffmpeg文档，这是个多工器，可以实现多路输出</li>
+</ul>
+<p>另外，补充一点，“-”短杠代表标准输出，ffmpeg -i 1.mp4 -f flv - 就是将md5值输出到标准输出。 所以多路输出可以这样写，ffmpeg -i 1.mp4 -c copy -f matroska - -c copy -f flv rtmp://abpush.xuyongkang.com/test  |ffplay - ffmpeg 将一路推流出去，另一路输出到标准输出，通过管道调用ffplay从标准输出读取流。这样就实现了一边播放原流，一边向cdn推流的目的。再从cdn拉取流与源流比较即可。</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/10/更改hosts文件后reload_nginx不生效/" rel="next" title="更改hosts文件后reload nginx不生效">
+                <i class="fa fa-chevron-left"></i> 更改hosts文件后reload nginx不生效
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/28/多种视频格式回放生成/" rel="prev" title="多种视频格式回放生成">
+                多种视频格式回放生成 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -326,6 +404,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -540,6 +622,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
